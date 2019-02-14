@@ -1,0 +1,15 @@
+#header{
+    display: flex;
+    width: 100%;
+}
+
+@font-face {
+    font-family: RodchenkoC;
+    src: url('../../static/fonts/rodchenko.eot');
+    src: url('../../static/fonts/rodchenko.eot?#iefix') format('embedded-opentype'),
+    url('../../static/fonts/rodchenko.woff') format('woff'),
+    url('../../static/fonts/rodchenko.ttf') format('truetype'),
+    url('../../static/fonts/rodchenko.svg#rodchenkocregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}

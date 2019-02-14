@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import './App.css';
-import Header from "./modules/header/Header";
+import Header from "./modules/Header";
 import {connect} from "react-redux";
 import {me} from './store/actions/profile'
 

@@ -1,12 +1,13 @@
 import React from 'react';
-import Counts from "./Counts";
-import TimeLeft from "./TimeLeft";
+import Counts from "../../../Counts";
+import TimeLeft from "../../../TimeLeft";
 import {connect} from 'react-redux';
+import './style.scss';
 
 const MoneyContainer = props =>
     <div id={'money-container'}>
         <Counts count={props.money} what={'R'}/>
-        <div>
+        <div style={{display: 'flex'}}>
             <Counts count={props.gold} what={'G'}/>
             {props.drinksIn > 0 && <TimeLeft seconds={props.drinksIn}/>}
         </div>

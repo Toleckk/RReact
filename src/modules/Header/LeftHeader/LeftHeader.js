@@ -1,12 +1,12 @@
-import React, {Component} from 'react';
-import Energy from "../Energy";
-import MoneyContainer from "../MoneyContainer";
+import Energy from "./Energy";
 import EnergyDetails from "./EnergyDetails";
-import {connect} from 'react-redux';
-import {updateDrinksIn, updateNextTicIn} from "../../store/actions/energy";
-import './Header.css';
+import MoneyContainer from "./MoneyContainer";
+import React, {Component} from "react";
+import {updateDrinksIn, updateNextTicIn} from "../../../store/actions/energy";
+import connect from "react-redux/es/connect/connect";
+import './style.scss';
 
-class Header extends Component {
+class LeftHeader extends Component {
     state = {
         energyHovered: false
     };
@@ -32,21 +32,12 @@ class Header extends Component {
 
     render() {
         const {avatar, energy, max} = this.props;
-        return (
-            <div id={'header'}>
-                <div id={'left-header'}>
-                    <img src={avatar} alt={'avatar'} style={{cursor: 'pointer', width: 50 + 'px', height: 50 + 'px'}}/>
-                    <Energy handler={this.energyHovered}/>
-                    {this.state.energyHovered ? <EnergyDetails/> : <MoneyContainer/>}
-                    {energy < max && <button id={'energy-drink'}/>}
-
-                </div>
-                <div id={'center-header'} style={{color: 'white'}}>
-                    <span style={{position: 'relative', left: 50 + '%'}}>SAS</span>
-                </div>
-                <div id={'right-header'} style={{color: 'white'}}>SOS</div>
-            </div>
-        );
+        return <div id={'left-header'}>
+            <img src={avatar} alt={'avatar'} style={{cursor: 'pointer', width: 50 + 'px', height: 50 + 'px'}}/>
+            <Energy handler={this.energyHovered}/>
+            {this.state.energyHovered ? <EnergyDetails/> : <MoneyContainer/>}
+            {energy < max && <button id={'energy-drink'}/>}
+        </div>;
     }
 }
 
@@ -63,4 +54,4 @@ const mapDispatchToProps = dispatch => ({
     updateNextTicIn: () => dispatch(updateNextTicIn)
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(Header);
+export default connect(mapStateToProps, mapDispatchToProps)(LeftHeader);

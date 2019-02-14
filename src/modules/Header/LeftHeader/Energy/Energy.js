@@ -1,6 +1,7 @@
 import React, {PureComponent} from 'react';
 import {connect} from 'react-redux';
-import {updateEnergy} from "../store/actions/energy";
+import {updateEnergy} from "../../../../store/actions/energy";
+import './style.scss';
 
 class Energy extends PureComponent {
     componentWillMount() {

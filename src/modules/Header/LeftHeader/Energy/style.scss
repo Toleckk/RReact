@@ -1,0 +1,10 @@
+#energy {
+  height: 50px;
+  display: flex;
+  flex-direction: column-reverse;
+
+  & div {
+    display: inline-flex;
+    width: 10px;
+  }
+}

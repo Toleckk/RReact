@@ -1,6 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import TimeLeft from "../TimeLeft";
+import TimeLeft from "../../../TimeLeft";
+import './style.scss';
 
 const EnergyDetails = props => {
     const {energy, max, nextTic, nextTicIn} = props;

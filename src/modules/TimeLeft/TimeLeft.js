@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import './style.scss';
 
 class TimeLeft extends Component {
     static prettyTime(seconds) {
@@ -11,7 +12,7 @@ class TimeLeft extends Component {
 
     render() {
         return (
-            <span id={'drinks-in'} className={'time-left'} style={this.props.style}>
+            <span className={'time-left'} style={this.props.style}>
                 {TimeLeft.prettyTime(this.props.seconds)}
             </span>
         );
