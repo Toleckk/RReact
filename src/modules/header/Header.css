@@ -1,0 +1,105 @@
+#header{
+    display: flex;
+    width: 100%;
+}
+
+#left-header {
+    height: 50px;
+    display: flex;
+    flex-direction: row;
+    float: left;
+    flex: 1;
+}
+
+#center-header {
+    flex: 1;
+}
+
+#right-header {
+    flex: 1;
+}
+
+#drinks-in {
+    width: 100%;
+    text-align: right;
+    color: #d2361c;
+}
+
+#energy {
+    height: 50px;
+    display: flex;
+    flex-direction: column-reverse;
+}
+
+#energy div {
+    display: inline-flex;
+    width: 10px;
+}
+
+#money-container {
+    display: flex;
+    flex-direction: column;
+    margin-left: 6px;
+    margin-right: 10px;
+    margin-top: 6px;
+}
+
+#money-container .counts {
+    color: #f1f1f1;
+}
+
+#money-container .counts:hover {
+    color: #54bb38;
+}
+
+#money-container div .counts {
+    color: #cacf36;
+}
+
+#energy-details {
+    font-family: RodchenkoC, serif;
+    font-size: 18px;
+    margin-top: 6px;
+    margin-left: 6px;
+}
+
+#energy-drink {
+    border: 0;
+    /*noinspection CssUnknownTarget*/
+    background: transparent url(/static/energy_drink.png) no-repeat center;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+}
+
+#energy-drink:focus{
+    outline: none;
+}
+
+#energy-drink:hover {
+    background-color: #3c6ae0;
+}
+
+.time-left {
+    color: white;
+    font-family: RodchenkoC, serif;
+    font-size: 18px;
+}
+
+.counts {
+    font-family: RodchenkoC, serif;
+    font-size: 18px;
+    white-space: nowrap;
+    cursor: pointer;
+}
+
+@font-face {
+    font-family: RodchenkoC;
+    src: url('../../static/fonts/rodchenko.eot');
+    src: url('../../static/fonts/rodchenko.eot?#iefix') format('embedded-opentype'),
+    url('../../static/fonts/rodchenko.woff') format('woff'),
+    url('../../static/fonts/rodchenko.ttf') format('truetype'),
+    url('../../static/fonts/rodchenko.svg#rodchenkocregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
