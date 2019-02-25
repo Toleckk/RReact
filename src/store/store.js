@@ -1,8 +1,12 @@
-import {applyMiddleware, createStore} from 'redux';
-import thunk from 'redux-thunk';
-import reducers from './reducers/index';
-import {composeWithDevTools} from 'redux-devtools-extension';
+import {init} from "@rematch/core";
+import {profile} from "./reducers/profile";
+import {energy} from "./reducers/energy";
 
-const store = createStore(reducers, composeWithDevTools(applyMiddleware(thunk)));
+const store = init({
+    models: {
+        profile,
+        energy
+    }
+});
 
 export default store;

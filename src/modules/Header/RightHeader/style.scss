@@ -1,3 +1,15 @@
 #right-header {
   flex: 1;
+  display: flex;
+  flex-direction: row-reverse;
+
+  & img {
+    width: 32px;
+    height: 32px;
+    padding: 9px;
+    cursor: pointer;
+    &:hover {
+      background: #3c6ae0;
+    }
+  }
 }

@@ -1,29 +1,20 @@
-import React, {Component} from 'react';
+import React, {useEffect} from 'react';
 import './App.css';
 import Header from "./modules/Header";
 import {connect} from "react-redux";
-import {me} from './store/actions/profile'
+import Menu from "./modules/Menu";
 
-class App extends Component {
-    componentWillMount() {
-        this.props.me();
-    }
+const App = ({me}) => {
+    useEffect(() => me(), []);
 
-    render() {
-        return (
-            <div style={{height: 100 + '%'}}>
-                <Header/>
-            </div>
-        );
-    }
-}
+    return <div style={{height: 100 + '%'}}>
+        <Header/>
+        <Menu/>
+    </div>
+};
 
-const mapDispatchToProps = dispatch => ({
-    me: () => dispatch(me)
-});
+const mapDispatchToProps = ({profile: {me}}) => ({me});
 
-const mapStateToProps = store => ({
-    profile: store.profile
-});
+const mapStateToProps = ({profile}) => ({profile});
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);

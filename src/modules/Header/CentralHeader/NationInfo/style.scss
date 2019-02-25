@@ -1,0 +1,35 @@
+#nation-info {
+  display: flex;
+  align-self: center;
+  align-items: center;
+  cursor: pointer;
+
+  &:hover div {
+    color: #3c6ae0;
+  }
+
+  & div {
+    font-family: RodchenkoC, serif;
+    margin-left: 4px;
+    color: white;
+    font-size: 13px;
+    margin-top: 2px;
+  }
+}
+
+#nation-image {
+  width: 25px;
+  height: 25px;
+}
+
+#people-image {
+  width: 16px;
+  height: 16px;
+  margin-left: 2px;
+}
+
+#logo {
+  color: white;
+  font-family: RodchenkoC, serif;
+  font-size: 24px;
+}

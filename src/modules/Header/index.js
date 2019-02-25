@@ -1,4 +1,14 @@
 import './style.scss';
-import Header from "./Header";
+import React from 'react';
+import LeftHeader from "./LeftHeader";
+import CentralHeader from "./CentralHeader";
+import RightHeader from "./RightHeader";
 
-export default Header;
+const Header = () =>
+    <div id={'header'}>
+        <LeftHeader/>
+        <CentralHeader/>
+        <RightHeader/>
+    </div>;
+
+export default React.memo(Header);
