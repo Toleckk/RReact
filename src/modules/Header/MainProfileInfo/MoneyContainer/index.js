@@ -2,10 +2,17 @@ import './style.scss';
 import React from 'react';
 import Counts from "../../../Counts";
 import TimeLeft from "../../../TimeLeft";
-import {connect} from 'react-redux';
+import {observer} from "mobx-react-lite";
 
-const MoneyContainer = ({money, gold, drinksAt, updateDrinksAt}) => {
+import ProfileStore from "../../../../mobx/ProfileStore";
+import EnergyStore from "../../../../mobx/EnergyStore";
+
+const MoneyContainer = () => {
+    const {money, gold} = ProfileStore;
+    const {drinksAt, updateDrinksAt} = EnergyStore;
+
     const style = {display: 'flex'};
+
     return <div id={'money-container'}>
         <Counts count={money} currency={'R'}/>
         <div style={style}>
@@ -15,10 +22,4 @@ const MoneyContainer = ({money, gold, drinksAt, updateDrinksAt}) => {
     </div>
 };
 
-const mapStateToProps = ({profile: {money, gold}, energy: {drinksAt}}) => ({money, gold, drinksAt});
-
-const mapDispatchToProps = ({energy: {updateDrinksAt}}) => ({
-    updateDrinksAt: () => updateDrinksAt(new Date().getTime() + 60000)
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(MoneyContainer);
+export default observer(MoneyContainer);

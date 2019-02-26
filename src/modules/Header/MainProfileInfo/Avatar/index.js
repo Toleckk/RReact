@@ -1,10 +1,14 @@
 import './style.scss';
 import React from "react";
-import {connect} from "react-redux";
 import ReactTooltip from 'react-tooltip';
 import Counts from '../../../Counts';
+import {observer} from "mobx-react-lite";
 
-const Avatar = ({id, lvl, experience, next, previous}) => {
+import ProfileStore from "../../../../mobx/ProfileStore";
+
+const Avatar = () => {
+    const {id, lvl: {value: lvl, experience, nextLvlExperience: next, previousLvlExperience: previous}} = ProfileStore;
+
     const style = {
         width: (experience - previous) / (next - previous) * 100 + '%'
     };
@@ -21,12 +25,4 @@ const Avatar = ({id, lvl, experience, next, previous}) => {
     </div>
 };
 
-const mapStateToProps = ({profile: {id, lvl}}) => ({
-    id: id,
-    lvl: lvl.value,
-    experience: lvl.experience,
-    next: lvl.next,
-    previous: lvl.previous
-});
-
-export default connect(mapStateToProps)(Avatar);
+export default observer(Avatar);

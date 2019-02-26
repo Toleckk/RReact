@@ -1,11 +1,12 @@
 import React, {useEffect} from 'react';
 import './App.css';
 import Header from "./modules/Header";
-import {connect} from "react-redux";
 import Menu from "./modules/Menu";
 
-const App = ({me}) => {
-    useEffect(() => me(), []);
+import profileStore from './mobx/ProfileStore';
+
+const App = () => {
+    useEffect(() => profileStore.me(), []);
 
     return <div style={{height: 100 + '%'}}>
         <Header/>
@@ -13,8 +14,4 @@ const App = ({me}) => {
     </div>
 };
 
-const mapDispatchToProps = ({profile: {me}}) => ({me});
-
-const mapStateToProps = ({profile}) => ({profile});
-
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default App;

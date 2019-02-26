@@ -1,8 +1,12 @@
 import './style.scss';
 import React, {useEffect, useMemo} from 'react';
-import {connect} from 'react-redux';
+import {observer} from 'mobx-react-lite';
 
-const Energy = ({energy, max, hoverHandler, updateEnergy}) => {
+import EnergyStore from "../../../../mobx/EnergyStore";
+
+const Energy = ({hoverHandler}) => {
+    const {updateEnergy, energy, max} = EnergyStore;
+
     useEffect(() => {updateEnergy();}, []);
 
     const mouseEnter = () => hoverHandler(true);
@@ -24,10 +28,4 @@ const Energy = ({energy, max, hoverHandler, updateEnergy}) => {
     );
 };
 
-const mapStateToProps = ({energy: {energy, max}}) => ({energy, max});
-
-const mapDispatchToProps = dispatch => ({
-    updateEnergy: dispatch.energy.updateEnergy
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(Energy);
+export default observer(Energy);

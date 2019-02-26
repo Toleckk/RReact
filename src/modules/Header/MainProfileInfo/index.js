@@ -3,10 +3,14 @@ import Energy from "./Energy";
 import EnergyDetails from "./EnergyDetails";
 import MoneyContainer from "./MoneyContainer";
 import React, {useState} from "react";
-import {connect} from "react-redux";
 import Avatar from "./Avatar";
+import {observer} from "mobx-react-lite";
 
-const LeftHeader = ({energy, max, drinksAt}) => {
+import EnergyStore from './../../../mobx/EnergyStore';
+
+const MainProfileInfo = () => {
+    const {energy, max, drinksAt} = EnergyStore;
+
     const [energyHovered, setHovered] = useState(false);
 
     return <div id={'left-header'}>
@@ -17,6 +21,4 @@ const LeftHeader = ({energy, max, drinksAt}) => {
     </div>;
 };
 
-const mapStateToProps = ({energy: {drinksAt, energy, max}}) => ({drinksAt, energy, max});
-
-export default connect(mapStateToProps)(LeftHeader);
+export default observer(MainProfileInfo);

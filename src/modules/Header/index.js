@@ -1,14 +1,15 @@
 import './style.scss';
 import React from 'react';
-import LeftHeader from "./LeftHeader";
+import MainProfileInfo from "./MainProfileInfo";
 import CentralHeader from "./CentralHeader";
 import RightHeader from "./RightHeader";
 
-const Header = () =>
-    <div id={'header'}>
-        <LeftHeader/>
+const Header = () => {
+    return <div id={'header'}>
+        <MainProfileInfo/>
         <CentralHeader/>
         <RightHeader/>
     </div>;
+};
 
-export default React.memo(Header);
+export default Header;

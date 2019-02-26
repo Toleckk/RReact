@@ -1,14 +1,13 @@
 import './style.scss';
 import React from 'react';
-import {connect} from 'react-redux';
+import {observer} from "mobx-react-lite";
+import ProfileStore from "../../../../mobx/ProfileStore";
 
-const NationInfo = ({id, count}) =>
+const NationInfo = () =>
     <div id={'nation-info'}>
-        <img id={'nation-image'} src={`/static/nations/${id}.png`} alt={'nation'}/>
-        <div>{count}</div>
+        <img id={'nation-image'} src={`/static/nations/${ProfileStore.nation.id}.png`} alt={'nation'}/>
+        <div>{ProfileStore.nation.peopleCount}</div>
         <img id={'people-image'} src={'/static/header/people_16.png'} alt={'people'}/>
     </div>;
 
-const mapStateToProps = ({profile: {nation: {id, peopleCount}}}) => ({id, count: peopleCount});
-
-export default connect(mapStateToProps)(NationInfo);
+export default observer(NationInfo);
